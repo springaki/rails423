@@ -4,6 +4,7 @@ class CreateIdeas < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :picture
+      t.date :publish_at
 
       t.timestamps null: false
     end

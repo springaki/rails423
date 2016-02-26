@@ -4,13 +4,16 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    @q = Idea.search(params[:q])
+    @ideas = @q.result(distinct: true)
   end
 
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @idea = Idea.find(params[:id])
     @comments = @idea.comments.all
+    @comment = @idea.comments.build
   end
 
   # GET /ideas/new

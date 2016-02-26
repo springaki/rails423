@@ -2,6 +2,28 @@
 
 <h1>Listing Ideas</h1>
 
+<%= search_form_for @q do |f| %>
+
+  <%= f.label 'name と description の OR 条件' %>
+  <%= f.search_field :name_or_description_cont %>
+  <br />
+
+  <%= f.label 'name と description の AND 条件' %>
+  <%= f.search_field :name_and_description_cont %>
+  <br />
+
+  <%= f.label '全ての条件にマッチ' %>
+  <%= f.search_field :name_cont_all %>
+  <br />
+
+  <%= f.label 'nameに含まれる' %>
+  <%= f.search_field :name_cont %>
+  <br />
+
+  <%= f.submit %>
+<% end %>
+
+
 <table>
   <thead>
     <tr>

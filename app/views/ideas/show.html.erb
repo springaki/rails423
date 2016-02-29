@@ -1,3 +1,18 @@
+<% breadcrumb :idea, @idea %>
+<%= breadcrumbs pretext: "BreadCrumbs: ",
+                separator: " &rsaquo; "
+%>
+
+
+<% breadcrumb :idea, @idea %>
+<% breadcrumbs pretext: "You are here: ", link_current: true do |links| %>
+  <% if links.any? %>
+    <% links.each do |link| %>
+      <%= link_to link.text, link.url, class: (link.current? ? "current" : nil) %> <%= link.current? ? "" : ' > ' %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
